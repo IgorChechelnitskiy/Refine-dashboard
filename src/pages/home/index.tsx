@@ -2,6 +2,7 @@ import { Col, Row } from "antd";
 import {
   DashboardTotalCountCard,
   DealsChart,
+  LatestActivities,
   UpcomingEvents,
 } from "@/components";
 import { useCustom } from "@refinedev/core";
@@ -48,6 +49,11 @@ export const Home = () => {
         </Col>
         <Col xs={24} sm={24} md={16} style={{ height: "460px" }}>
           <DealsChart />
+        </Col>
+      </Row>
+      <Row gutter={[32, 32]} style={{ marginTop: "32px" }}>
+        <Col xs={24}>
+          <LatestActivities />
         </Col>
       </Row>
     </div>

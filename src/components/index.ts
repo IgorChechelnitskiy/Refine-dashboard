@@ -1,5 +1,6 @@
 import UpcomingEvents from "@/components/home/upcoming-events";
 import DashboardTotalCountCard from "@/components/home/total-count-card";
+import LatestActivities from "@/components/home/latest-activities";
 import DealsChart from "@/components/home/deals-chart";
 import UpcomingEventsSkeleton from "./skeleton/upcoming-events";
 import AccordionHeaderSkeleton from "./skeleton/accordion-header";
@@ -16,4 +17,5 @@ export {
   KanbanColumnSkeleton,
   LatestActivitiesSkeleton,
   ProjectCardSkeleton,
+  LatestActivities,
 };

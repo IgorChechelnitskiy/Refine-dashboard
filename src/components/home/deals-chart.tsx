@@ -23,41 +23,41 @@ const DealsChart = () => {
 
   const config: AreaConfig = {
     data: dealData,
-    // filters: [
-    //   {
-    //     field: "title",
-    //     operator: "in",
-    //     value: ["WON", "LOST"],
-    //   },
-    // ],
+    filters: [
+      {
+        field: "title",
+        operator: "in",
+        value: ["WON", "LOST"],
+      },
+    ],
     xField: "timeText",
     yField: "value",
 
-    // stack: false,
+    stack: false,
     seriesField: "state",
-    // animation: true,
-    // startOnZero: false,
-    // smooth: true,
+    animation: true,
+    startOnZero: false,
+    smooth: true,
     legend: {
       offsetY: -4,
     },
-    // yAaxis: {
-    //   clickCount: 4,
-    //   label: {
-    //     formatter: (v: string) => {
-    //       return `$${Number(v) / 1000}k`;
-    //     },
-    //   },
-    // },
+    yAxis: {
+      tickCount: 4,
+      label: {
+        formatter: (v: string) => {
+          return `$${Number(v) / 1000}k`;
+        },
+      },
+    },
 
-    // tooltip: {
-    //   formatter: (data: any) => {
-    //     return {
-    //       name: data.state,
-    //       value: `$${Number(data.value) / 1000}k`,
-    //     };
-    //   },
-    // },
+    tooltip: {
+      formatter: (data: any) => {
+        return {
+          name: data.state,
+          value: `$${Number(data.value) / 1000}k`,
+        };
+      },
+    },
   };
 
   return (
