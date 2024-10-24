@@ -12,7 +12,7 @@ import routerBindings, {
 import { App as AntdApp } from "antd";
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { authProvider, dataProvider, liveProvider } from "./providers/";
-import { Home } from "./pages";
+import { CompanyList, Home } from "./pages";
 import { ForgotPassword, Login, Register } from "./pages/";
 import Layout from "./components/layout";
 import { resources } from "@/config/resources";
@@ -60,6 +60,7 @@ function App() {
                   }
                 >
                   <Route index element={<Home />} />
+                  <Route path="/companies" element={<CompanyList />} />
                 </Route>
               </Routes>
               <RefineKbar />

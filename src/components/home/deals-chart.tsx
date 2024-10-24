@@ -32,9 +32,9 @@ const DealsChart = () => {
     ],
     xField: "timeText",
     yField: "value",
+    seriesField: "state",
 
     stack: false,
-    seriesField: "state",
     animation: true,
     startOnZero: false,
     smooth: true,

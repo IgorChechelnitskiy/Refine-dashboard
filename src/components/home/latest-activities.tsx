@@ -1,4 +1,4 @@
-import {Card, List, Space} from "antd";
+import { Card, List, Space } from "antd";
 import { Text } from "../text";
 import { UnorderedListOutlined } from "@ant-design/icons";
 import { LatestActivitiesSkeleton } from "@/components";
@@ -87,10 +87,16 @@ const LatestActivities = () => {
                     />
                   }
                   description={
-                  <Space>
-                    <Text strong>{item.user?.name}</Text>
-                    <Text strong>{item.action === 'CREATE' ? 'created' : 'moved'}</Text>
-                  <Space/>
+                    <Space>
+                      <Text strong>{item.user?.name}</Text>
+                      <Text strong>
+                        {item.action === "CREATE" ? "created" : "moved"}
+                      </Text>
+                      <Text strong>{deal?.title}</Text>
+                      <Text>deal</Text>
+                      <Text>{item.action === "CREATE" ? "in" : "to"}</Text>
+                      <Text strong>{deal?.stage?.title}</Text>
+                    </Space>
                   }
                 />
               </List.Item>
