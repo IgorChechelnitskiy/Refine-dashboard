@@ -29,7 +29,7 @@ export const KanbanBoardContainer = ({ children }: React.PropsWithChildren) => {
 
 export const KanbanBoard = ({ children }: React.PropsWithChildren) => {
   return (
-    <div>
+    <div style={{ display: "flex" }}>
       <DndContext>{children}</DndContext>
     </div>
   );
