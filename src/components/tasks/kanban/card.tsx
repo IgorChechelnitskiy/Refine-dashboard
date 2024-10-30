@@ -5,11 +5,13 @@ import {
   ConfigProvider,
   Dropdown,
   MenuProps,
+  Space,
   Tag,
   theme,
+  Tooltip,
 } from "antd";
 import { Text } from "../../text";
-import { useMemo } from "react";
+import { memo, useMemo } from "react";
 import {
   ClockCircleOutlined,
   DeleteOutlined,
@@ -19,6 +21,7 @@ import {
 import { TextIcon } from "@/components/text-icon";
 import dayjs from "dayjs";
 import { getDateColor } from "@/utilities";
+import CustomAvatar from "@/components/custom-avatar";
 
 type ProjectCardProps = {
   id: string;
@@ -130,6 +133,26 @@ const ProjectCard = ({ id, title, dueDate, users }: ProjectCardProps) => {
               {dueDateOptions.text}
             </Tag>
           )}
+          {!!users?.length && (
+            <Space
+              size={4}
+              wrap
+              direction="horizontal"
+              align="center"
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                marginLeft: "auto",
+                marginRight: 0,
+              }}
+            >
+              {users.map((user) => (
+                <Tooltip key={user.id} title={user.name}>
+                  <CustomAvatar name={user.name} src={user.avatarUrl} />
+                </Tooltip>
+              ))}
+            </Space>
+          )}
         </div>
       </Card>
     </ConfigProvider>
@@ -137,3 +160,13 @@ const ProjectCard = ({ id, title, dueDate, users }: ProjectCardProps) => {
 };
 
 export default ProjectCard;
+
+export const ProjectCardMemo = memo(ProjectCard, (prev, next) => {
+  return (
+    prev.id === next.id &&
+    prev.title === next.title &&
+    prev.dueDate === next.dueDate &&
+    prev.users?.length === next.users?.length &&
+    prev.updatedAt === next.updatedAt
+  );
+});
