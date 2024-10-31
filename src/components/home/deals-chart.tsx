@@ -9,6 +9,15 @@ import { mapDealsData } from "@/utilities/helpers";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { DashboardDealsChartQuery } from "@/graphql/types";
 
+interface CustomAreaConfig extends AreaConfig {
+  filters?: Array<{
+    field: string;
+    operator: string;
+    value: string[];
+  }>;
+  stack: boolean;
+}
+
 const DealsChart = () => {
   const { data } = useList<GetFieldsFromList<DashboardDealsChartQuery>>({
     resource: "dealStages",
@@ -21,7 +30,7 @@ const DealsChart = () => {
     return mapDealsData(data?.data);
   }, [data?.data]);
 
-  const config: AreaConfig = {
+  const config: CustomAreaConfig = {
     data: dealData,
     filters: [
       {
